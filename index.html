@@ -48,7 +48,7 @@ font-size:50px;
 font-family:'Great Vibes', cursive;
 letter-spacing:3px;
 z-index:9999;
-animation:fadeOut 1s forwards 2s;
+animation:fadeOut 2s forwards 2s;
 }
 
 @keyframes fadeOut{
@@ -199,8 +199,6 @@ color:var(--sage);
 
 /* ================= FOOTER ================= */
 
-/* ================= FOOTER ================= */
-
 .footer{
 height:100vh;
 background:url('foot-bg.png') center/cover no-repeat;
@@ -230,6 +228,28 @@ background-size:200%;
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
 animation:shimmer 4s infinite;
+}
+
+/* ===== BOUNCING DOODLE ===== */
+
+.footer-doodle{
+position:absolute;
+bottom:0;
+left:50%;
+transform:translateX(-50%);
+width:280px; /* adjust size if needed */
+z-index:1;
+animation:bounce 3s infinite ease-in-out;
+}
+
+/* Bounce Animation */
+@keyframes bounce{
+0%,100%{
+transform:translateX(-50%) translateY(0);
+}
+50%{
+transform:translateX(-50%) translateY(-20px);}
+
 }
 
 /* ================= MOBILE ================= */
@@ -337,6 +357,9 @@ Thank You For <br>
 Being Part <br>
 Of Our Journey
 </h1>
+
+<img src="footer-doodle.png" class="footer-doodle" alt="footer doodle">
+
 </section>
 
 <script>
