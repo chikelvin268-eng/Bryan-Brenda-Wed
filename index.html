@@ -227,14 +227,13 @@ body{
     line-height: 1.2;
 }
 
-.footer-doodle{
-    position:absolute;
-    bottom:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:280px; 
-    z-index:1;
-    animation:bounce 3s infinite ease-in-out;
+.footer-doodle {
+    display: block;
+    margin: 2cm auto 0; /* 2cm gap under the text, centered horizontally */
+    width: 280px; 
+    z-index: 1;
+    opacity: 0.6; /* 60% Opacity */
+    animation: bounce 3s infinite ease-in-out;
 }
 
 @keyframes bounce{
@@ -349,3 +348,4 @@ setInterval(function(){
 
 </body>
 </html>
+
