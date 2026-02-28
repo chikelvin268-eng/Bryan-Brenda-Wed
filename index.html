@@ -37,8 +37,9 @@ position:fixed;
 width:100%;
 height:100vh;
 
-/* ADD YOUR LOADER BACKGROUND IMAGE HERE */
-background:url('load-bg.png') center/cover no-repeat;
+/* Desktop */
+background:url('load-bg.png') center center no-repeat;
+background-size:cover;
 
 display:flex;
 align-items:center;
@@ -255,6 +256,13 @@ transform:translateX(-50%) translateY(-20px);}
 /* ================= MOBILE ================= */
 
 @media(max-width:768px){
+
+.loader{
+background-size:100% auto;  /* shows full image */
+background-position:center top;
+background-color:#000;     /* fills empty space */
+}
+
 .hero h1{font-size:45px;}
 .story h1{font-size:55px;}
 .footer h1{font-size:38px;}
@@ -364,18 +372,46 @@ Of Our Journey
 
 <script>
 
+/* ===== ALWAYS SCROLL TO TOP ON REFRESH ===== */
+
+// Disable browser scroll restoration
+if ('scrollRestoration' in history) {
+history.scrollRestoration = 'manual';
+}
+
+// Force scroll to top on load
+window.onload = function() {
+window.scrollTo(0, 0);
+};
+
 function openInvite(){
+
+// Scroll to top when invitation opens
+window.scrollTo({ top: 0, behavior: "smooth" });
+
 document.getElementById("envelope").classList.add("open");
 
 var music = document.getElementById("bgMusic");
-music.volume = 0.4;   // 40% volume
-music.play();
+
+// Force volume to 40% BEFORE play
+music.volume = 0.4;
+music.currentTime = 0;
+
+// Play safely (for browser restrictions)
+var playPromise = music.play();
+
+if (playPromise !== undefined) {
+playPromise.then(_ => {
+// playing
+}).catch(error => {
+console.log("Autoplay blocked:", error);
+});
+}
 
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
 },1000);
 }
-
 /* COUNTDOWN */
 var weddingDate = new Date("Oct 10, 2026 14:00:00").getTime();
 
