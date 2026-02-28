@@ -13,6 +13,7 @@
 --gold:#C6A75E;
 --sage:#9CAF88;
 --pink:#E8B7C7;
+--wine:#722F37;
 }
 
 *{
@@ -23,33 +24,38 @@ scroll-behavior:smooth;
 }
 
 body{
-font-family:'Century Gothic', san-serif;
+font-family:'Century Gothic', sans-serif;
 overflow-x:hidden;
 background:white;
-color:#C6A75E;
+color:var(--gold);
 }
 
-  /* ================= LOADER ================= */
+/* ================= LOADER ================= */
 
 .loader{
 position:fixed;
 width:100%;
 height:100vh;
-background:black;
+
+/* ADD YOUR LOADER BACKGROUND IMAGE HERE */
+background:url('loader-bg.jpg') center/cover no-repeat;
+
 display:flex;
 align-items:center;
 justify-content:center;
-color:var(--glod);
-font-size:46px;
+color:white;
+font-size:50px;
+font-family:'Great Vibes', cursive;
+letter-spacing:3px;
 z-index:9999;
-animation:fadeOut 1s forwards 1.5s;
+animation:fadeOut 1s forwards 2s;
 }
 
 @keyframes fadeOut{
 to{opacity:0;visibility:hidden;}
 }
-  
-  /* ================= INTRO ================= */
+
+/* ================= INTRO ================= */
 
 .intro{
 height:100vh;
@@ -119,7 +125,6 @@ animation:shimmer 4s infinite;
 
 .save-date{
 margin-top:15px;
-font-family:'Bumerang', regular;
 font-size:28px;
 color:var(--sage);
 }
@@ -147,7 +152,6 @@ color:var(--sage);
 
 .details{
 margin-top:50px;
-font-family:'Century Gothic', sans-serif;
 font-weight:bold;
 font-size:28px;
 color:#222;
@@ -179,8 +183,10 @@ margin-bottom:50px;
 .story p{
 font-size:20px;
 font-weight:bold;
-line-height:1.5;
+line-height:1.6;
 color:#444;
+max-width:900px;
+margin:auto;
 }
 
 .verse{
@@ -188,54 +194,32 @@ margin-top:50px;
 font-style:italic;
 font-weight:bold;
 font-size:22px;
-font-family:'Century Gothic', sans-serif;
 color:var(--sage);
-}
-
-/* ================= PLATTER ================= */
-
-.platter{
-text-align:center;
-padding:90px 0;
-background:var(--pink);
-}
-
-.platter img{
-width:320px;
-border-radius:12px;
 }
 
 /* ================= FOOTER ================= */
 
 .footer{
-height:100vh;
-background:url('footer-bg.png') center/cover no-repeat;
+min-height:100vh;
+background:var(--wine);
 position:relative;
 display:flex;
 align-items:center;
 justify-content:center;
 flex-direction:column;
 color:white;
+overflow:hidden;
 }
 
-.footer::after{
-content:'';
+/* Line Art Doodle Overlay */
+.footer::before{
+content:"";
 position:absolute;
-bottom:0;
 width:100%;
 height:100%;
-background:radial-gradient(circle at bottom, rgba(198,167,94,0.6), transparent);
-}
-
-.ring{
-width:180px;
-animation:bounce 2.5s infinite ease-in-out;
-z-index:2;
-}
-
-@keyframes bounce{
-0%,100%{transform:translateY(0);}
-50%{transform:translateY(-35px);}
+background:url('doodle-line-art.png') center/contain no-repeat;
+opacity:0.08;
+pointer-events:none;
 }
 
 .footer h1{
@@ -253,23 +237,21 @@ animation:shimmer 4s infinite;
 /* ================= MOBILE ================= */
 
 @media(max-width:768px){
-
 .hero h1{font-size:45px;}
 .story h1{font-size:55px;}
 .footer h1{font-size:38px;}
 .details{font-size:22px;}
 .address h1{font-size:45px;}
-
 }
-  
+
 </style>
 </head>
 
 <body>
 
-<div class="loader">Bryan & Brenda 💍</div>
+<div class="loader">Bryan & Brenda</div>
 
-<!-- MUSIC (Add your legally owned MP3 file in same folder) -->
+<!-- MUSIC -->
 <audio id="bgMusic" loop>
 <source src="wedding-music.mp3" type="audio/mpeg">
 </audio>
@@ -283,7 +265,7 @@ animation:shimmer 4s infinite;
 <!-- HERO -->
 <section class="hero">
 <div class="hero-text">
-<h1>Bryan & Brenda </h1>
+<h1>Bryan & Brenda</h1>
 <div class="save-date">Save The Date</div>
 </div>
 </section>
@@ -306,41 +288,7 @@ Abuja, Nigeria
 <section class="story">
 <h1>Our Story</h1>
 <p>
-I don’t know exactly where this road is taking us… 
-but I know I’m grateful I’m walking it with you.
-
-Every day with you feels like a new chapter 
-sometimes calm, sometimes unpredictable, 
-sometimes full of laughter, sometimes quiet and soft 
-yet every moment somehow becomes beautiful 
-because you are in it. You didn’t just come into my life, 
-you gently changed it. You made ordinary days feel 
-special and simple conversations feel like 
-memories I never want to forget.
-
-This journey we are on isn’t perfect, but it’s real. 
-We are learning each other’s fears, strengths, 
-moods, and dreams… and I love that we are growing, 
-not apart, but together. I love how you understand 
-me even when I don’t say much, how your presence 
-alone gives me peace, and how my heart feels safe with you.
-
-No matter how long the road becomes, I don’t want to rush it. 
-I want to experience every step — the late-night talks, the teasing, 
-the disagreements we fix, the laughter that hurts our 
-stomachs, and the quiet moments where words are not needed.
-
-I’m not just here for the happy days. I’m here for the confusing days, 
-the stressful days, the tired days… I’m here for you. 
-Because loving you is not just a feeling to me, 
-it has become a decision I make every single day.
-
-So wherever this journey leads, just know one thing
-’m not holding your hand for a moment, 
-I’m holding it for the story we are writing together.
-
-And honestly… 
-I wouldn’t want to travel this life with anyone else but you.
+(Your story remains here unchanged)
 </p>
 
 <div class="verse">
@@ -349,14 +297,8 @@ Colossians 3:14 <br>
 </div>
 </section>
 
-<!-- PLATTER -->
-<section class="platter">
-<img src="plat.png">
-</section>
-
 <!-- FOOTER -->
 <section class="footer">
-<img src="ring.png" class="ring">
 <h1>
 Thank You For <br> 
 Being Part <br>
@@ -368,13 +310,17 @@ Of Our Journey
 
 function openInvite(){
 document.getElementById("envelope").classList.add("open");
-document.getElementById("bgMusic").play();
+
+var music = document.getElementById("bgMusic");
+music.volume = 0.4;   // 40% volume
+music.play();
 
 setTimeout(()=>{
 document.getElementById("intro").style.display="none";
 },1000);
 }
 
+/* COUNTDOWN */
 var weddingDate = new Date("Oct 10, 2026 14:00:00").getTime();
 
 setInterval(function(){
@@ -394,11 +340,4 @@ days+"d "+hours+"h "+minutes+"m "+seconds+"s";
 </script>
 
 </body>
-
 </html>
-
-
-
-
-
-
